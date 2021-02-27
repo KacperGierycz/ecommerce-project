@@ -1,1 +1,13 @@
-<p>search works!</p>
+<div class="form-header">
+
+    <input #myInpup type="text"   
+    placeholder="Search for products ..."
+    class="au-input au-input-xl"
+    (kyeup.enter)="soSearch(myInput.value)"
+    />
+
+    <button (click)="soSearch(myInput.value)" class="au-btn-submit">
+        Search
+    </button>
+
+</div>
