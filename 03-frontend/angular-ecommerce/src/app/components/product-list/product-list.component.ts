@@ -11,10 +11,17 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
 
   products!: Product[];
-  currentCategoryId!: number;
-  searchMode!: boolean;
+  currentCategoryId: number=1;
+  previousCategory: number=1;
+  searchMode: boolean=false;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  // new properties for pagination
+  thePageNumber:number=1;
+  thePageSize:number=10;
+  theTotalElements:number=0;
+
+  constructor(private productService: ProductService,
+              private route: ActivatedRoute) {
 
      }
 
@@ -54,13 +61,12 @@ export class ProductListComponent implements OnInit {
 
   handleListProducts(){
 
- // check if "id" parameter is available
- const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
+  // check if "id" parameter is available
+  const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
- if(hasCategoryId){
+  if(hasCategoryId){
 
-   // get the "id" param and convert it to the number using the "+"
-
+// get the "id" param and convert it to the number using the "+"
   this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
  }
  else{
@@ -68,12 +74,40 @@ export class ProductListComponent implements OnInit {
    this.currentCategoryId=1;
  }
 
+//
+ //Check if we have a different category then previous
+ // Note: Angular will reuse a component if it is curently being viewed
+ //
+
+// if we have diferent category id then previous
+// then set the PageNumber back to 1
+
+if( this.previousCategory != this.currentCategoryId){
+  this.thePageNumber=1; 
+}
+
+this.previousCategory=this.currentCategoryId;
+
+console.log(`currentCategoryId=${this.currentCategoryId},
+thePageNumber=${this.thePageNumber}`);
+
+
+
  // now get the product for the given category id
- this.productService.getProductList(this.currentCategoryId).subscribe(
- data =>{ this.products=data;
- }
- )
+ this.productService.getProductListPaginate(this.thePageNumber - 1,
+                                            this.thePageSize,
+                                            this.currentCategoryId)
+                                            .subscribe(this.processResult());
+                                          
+ 
 
   }
-
+processResult() {
+  return (data: { _embedded: { products: Product[]; }; page: { number: number; size: number; totalElements: number; }; })=>{
+    this.products=data._embedded.products;
+    this.thePageNumber=data.page.number+1;
+    this.thePageSize = data.page.size;
+    this.theTotalElements = data.page.totalElements;
+  }
+}
 }
