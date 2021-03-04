@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products!: Product[];
+  products: Product[]=[];
   currentCategoryId: number=1;
   previousCategory: number=1;
   searchMode: boolean=false;
@@ -103,11 +103,11 @@ thePageNumber=${this.thePageNumber}`);
 
   }
 processResult() {
-  return (data: { _embedded: { products: Product[]; }; page: { number: number; size: number; totalElements: number; }; })=>{
+  return (data: any) => {
     this.products=data._embedded.products;
     this.thePageNumber=data.page.number+1;
     this.thePageSize = data.page.size;
     this.theTotalElements = data.page.totalElements;
-  }
+  };
 }
 }
