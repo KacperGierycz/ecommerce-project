@@ -62,6 +62,20 @@ this.computeCartTotals();
   this.totalPrice.next(totalPriceValue);
   this.totalQuantity.next(totalQuantityValue);
 
+// log cart data just for debugging purposes
+this.logCartData(totalPriceValue, totalQuantityValue);
+
+  }
+  logCartData(totalPriceValue: number, totalQuantityValue: number) {
+    console.log('Content of the cart');
+    for (let tempCartItem of this.cartItems){
+      const subTotalPrice=tempCartItem.quantity*tempCartItem.unitPrice;
+      console.log(`name: ${tempCartItem.name}, quantity=${tempCartItem.quantity}, subTotalPrice=${subTotalPrice} `);
+    }
+
+    console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
+    console.log('-----');
+
   }
 
 }
