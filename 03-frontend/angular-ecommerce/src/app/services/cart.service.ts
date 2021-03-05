@@ -22,13 +22,7 @@ let existingCartItem: CartItem= undefined;
 if (this.cartItems.length>0){
   // find the item in the cart hased on item id
 
-  for(let tempCartItem of this.cartItems){
-
-    if (tempCartItem.id===theCartItem.id){
-      existingCartItem=tempCartItem;
-      break;
-    }
-  }
+existingCartItem= this.cartItems.find(tempCartItem => tempCartItem.id === theCartItem.id);
 
 
   // check if we found it
