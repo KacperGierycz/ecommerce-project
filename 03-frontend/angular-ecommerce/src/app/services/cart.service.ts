@@ -49,7 +49,19 @@ this.computeCartTotals();
 
 }
   computeCartTotals() {
-    throw new Error('Method not implemented.');
+    let totalPriceValue: number = 0;
+    let totalQuantityValue: number =0 ;
+
+    for (let curentCartItem of this.cartItems){
+
+      totalPriceValue += curentCartItem.quantity * curentCartItem.unitPrice;
+      totalQuantityValue += curentCartItem.quantity;
+    }
+
+  // publish the new values ... all subscribes will recive the new data
+  this.totalPrice.next(totalPriceValue);
+  this.totalQuantity.next(totalQuantityValue);
+
   }
 
 }
