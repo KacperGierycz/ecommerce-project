@@ -39,4 +39,8 @@ totalQuantity: number = 0;
 
   }
 
+  incrementQuantity(theCartItem: CartItem){
+    this.cartService.addToCart(theCartItem);
+  }
+
 }
