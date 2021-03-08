@@ -47,4 +47,8 @@ totalQuantity: number = 0;
     this.cartService.decrementQuantity(theCartItem); 
   }
 
+  remove(theCartItem: CartItem){
+    this.cartService.remove(theCartItem);
+  }
+
 }
