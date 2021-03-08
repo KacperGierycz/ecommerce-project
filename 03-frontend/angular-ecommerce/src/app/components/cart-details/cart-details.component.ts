@@ -43,4 +43,8 @@ totalQuantity: number = 0;
     this.cartService.addToCart(theCartItem);
   }
 
+  decrementQuantity(theCartItem: CartItem){
+    this.cartService.decrementQuantity(theCartItem); 
+  }
+
 }
