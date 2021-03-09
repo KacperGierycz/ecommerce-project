@@ -1,5 +1,7 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Luv2ShopFormService } from 'src/app/services/luv2-shop-form.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,7 +15,12 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-  constructor(private formBuilder: FormBuilder) { }
+  creditCardYears:number[]=[];
+  creditCardMonths:number[]=[];
+
+
+  constructor(private formBuilder: FormBuilder,
+              private luv2shopFormService:Luv2ShopFormService) { }
 
   ngOnInit(): void {
 
@@ -24,34 +31,57 @@ export class CheckoutComponent implements OnInit {
         email: ['']
       }),
       shippingAddress: this.formBuilder.group({
-        street:[],
-        city:[],
-        state:[],
-        country:[],
-        email:[],
-        zipCode:[],
+        street:[''],
+        city:[''],
+        state:[''],
+        country:[''],
+        email:[''],
+        zipCode:[''],
 
       }),
       billingAddress: this.formBuilder.group({
-        street:[],
-        city:[],
-        state:[],
-        country:[],
-        email:[],
-        zipCode:[],
+        street:[''],
+        city:[''],
+        state:[''],
+        country:[''],
+        email:[''],
+        zipCode:[''],
 
       }),
       creditCard: this.formBuilder.group({
-        cardType:[],
-        nameOnCard:[],
-        cardNumber:[],
-        securityCode:[],
-        expirationMonth:[],
-        expirationYear:[],
+        cardType:[''],
+        nameOnCard:[''],
+        cardNumber:[''],
+        securityCode:[''],
+        expirationMonth:[''],
+        expirationYear:[''],
 
       })
 
     });
+
+    // populate credit cards months
+
+    const startMonth: number= new Date().getMonth()+1;
+    console.log("startMonth"+startMonth);
+
+    this.luv2shopFormService.getCreditCardMonths(startMonth).subscribe(
+      data=>{
+        console.log("Retrived credit card months: "+ JSON.stringify(data));
+        this.creditCardMonths=data;
+      }
+    )
+
+    // populated credit cards years
+
+
+
+      this.luv2shopFormService.getCreditCardYears().subscribe(
+        data=>{
+          console.log("Retrieve Credit Card Year: "+ JSON.stringify(data));
+          this.creditCardYears=data;
+        }
+      )
 
   }
 
