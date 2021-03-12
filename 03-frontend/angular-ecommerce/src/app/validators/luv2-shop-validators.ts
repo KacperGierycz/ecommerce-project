@@ -9,7 +9,7 @@ export class Luv2ShopValidators {
         if((control.value != null) && (control.value.trim().length === 0)) {
 
             // invalid, return error object
-            return {'notOnlyWhitespace': true};
+            return {'notOnlyWhitespaces': true};
 
         }
         else{
