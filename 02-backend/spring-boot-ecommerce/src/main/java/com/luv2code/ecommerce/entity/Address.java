@@ -32,7 +32,7 @@ public class Address {
     private String zipCode;
 
     @OneToOne
-    @JoinColumn(name="id", referencedColumnName = "")
+    @PrimaryKeyJoinColumn
     private Order order;
 
 

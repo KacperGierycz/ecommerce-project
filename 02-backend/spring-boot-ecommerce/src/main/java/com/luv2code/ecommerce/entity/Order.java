@@ -17,7 +17,7 @@ import java.util.Set;
 @Setter
 public class Order {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long Id;
@@ -49,11 +49,12 @@ public class Order {
     @JoinColumn(name="customer_id")
     private Customer customer;
 
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="shipping_address_id", referencedColumnName = "id")
     private Address shippingAddress;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="billing_address_id", referencedColumnName = "id")
     private Address billingAddress;
 

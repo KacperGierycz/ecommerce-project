@@ -25,19 +25,20 @@ public class CheckoutServiceImpl implements CheckoutService {
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
-
+        System.out.print(1);
         // tretrieve the order info from dto
         Order order = purchase.getOrder();
 
         // generate tracking number
         String orderTrackingNumber = generateOrderTrackingNumber();
         order.setOrderTrackingNumber(orderTrackingNumber);
-
+        System.out.print(2);
         // populate order with orderItem
         Set<OrderItem> orderItems = purchase.getOrderItems();
         orderItems.forEach(item -> order.add(item));
 
         // populate order with billingAddress and shippingAddres
+        System.out.print(3);
         order.setBillingAddress(purchase.getBillingAddress());
         order.setShippingAddress(purchase.getShippingAddress());
 
