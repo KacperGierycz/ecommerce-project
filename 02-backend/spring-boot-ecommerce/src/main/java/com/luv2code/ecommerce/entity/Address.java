@@ -31,6 +31,10 @@ public class Address {
     @Column(name="zip_code")
     private String zipCode;
 
+    @OneToOne
+    @JoinColumn(name="id", referencedColumnName = "")
+    private Order order;
+
 
 
 }
