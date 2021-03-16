@@ -57,14 +57,13 @@
                             <div class="input-space">
                                 <input formControlName="email" type="text">
 
-                                <div *ngIf="email.invalid && (email.dirty 
-                                || email.touched)" class="alert alert-danger mt-1">
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-1 alert alert-danger">
                           
                                 <div *ngIf="email.errors.required">
                                 Email is required
                                 </div>
 
-                                <div *ngIf="email.errors.pattern">
+                               <div *ngIf="email.errors.pattern">
                                 Email must be a valid email addres format
                                 </div>
 

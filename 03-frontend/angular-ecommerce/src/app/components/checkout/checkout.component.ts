@@ -53,7 +53,8 @@ export class CheckoutComponent implements OnInit {
         lastName: new FormControl('',[Validators.required,Validators.minLength(2),Luv2ShopValidators.notOnlyWhitespaces]),
         email: new FormControl('',
                     [Validators.required,
-                       Validators.pattern('[^a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+                       Validators.pattern('^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$')])
+                       //'[^a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$'
       }),
       shippingAddress: this.formBuilder.group({
         street:new FormControl('',
