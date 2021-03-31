@@ -25,7 +25,7 @@ export class OrderHistoryService {
 
 interface GetResponseOrderHistory{
 
-  _embeded:{
+  _embedded:{
     orders: OrderHistory[];
 
   }

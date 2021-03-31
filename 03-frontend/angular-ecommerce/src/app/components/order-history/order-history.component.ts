@@ -26,7 +26,7 @@ export class OrderHistoryComponent implements OnInit {
     // retrieve data from the service
     this.OrderHistoryService.getOrderHistory(theEmail).subscribe(
       data => {
-        this.orderHistoryList = data._embeded.orders;
+        this.orderHistoryList = data._embedded.orders;
       }
 
     );
