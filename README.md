@@ -1,2 +1,2 @@
 # ecommerce-project
-[embed]C:\Users\Dom\Documents\Nowa mindmapa.pdf[/embed]
+[embed]C:\Users\Dom\Documents\Nowa mindmapa.jpg[/embed]
