@@ -1,2 +1,2 @@
 # ecommerce-project
-<img src="https://user-images.githubusercontent.com/57790974/131086667-eddc2d21-615f-4113-9776-b61f277e0cb8.jpeg">
+<img src="https://user-images.githubusercontent.com/57790974/131135381-58778769-7de0-4b2e-a3df-91844ddfd848.jpeg">
