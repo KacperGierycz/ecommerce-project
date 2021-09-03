@@ -6,6 +6,9 @@ Full-stack: Angular frontend, BootStrap HTM CSS, Java Backend, SpringBOOT, Sprin
 
 I made a mind map of modules and concepts that are involved in a project this is my way of learning and making notes this is useful to view the project dependencies making it interactive (be FreeMind.app) takes a lot of time but is v handy can modification during a development stage. It's an alternative to the standard written document from the previous project.
 <br>
+Angular explanation the single page display. The view is directed in app module in Routes if the action is made (button click) the certain path is added/replace domain:4200/path... then componen present in rout is activated it can have others services in constructor that act acordingly and connect to data base, display their html couterparts. Generation of this elements is with ng generate component/interface/service... well rest in a diagram.  
+
+<br>
 Screenshots of application working locally after maps.
 
 <br>
