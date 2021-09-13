@@ -14,7 +14,7 @@ Screenshots of application working locally after maps.
 <br>
 
 FreeMind.app
-![Fullstack e-commerce v21](https://user-images.githubusercontent.com/57790974/131962415-8b20c934-b749-4cf6-95c0-e6870c55c44a.jpeg)
+![Fullstack e-commerce v21](https://user-images.githubusercontent.com/57790974/133039026-fe4fa844-816f-4902-a601-89a4a6838edd.jpeg)
 
 <br>
 
